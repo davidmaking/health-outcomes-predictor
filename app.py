@@ -12,7 +12,7 @@ from sklearn.pipeline import Pipeline
 st.set_page_config(page_title="Walkability & Health", layout="wide")
 
 DATA_PATH = '~/Desktop/projects/saas_df/data/merged_data.csv'
-FEATURES = ['walkability_mean', 'lapop1share', 'no_vehicle_ratio']
+FEATURES = ['walkability_mean', 'lapop1share', 'no_vehicle_ratio', 'MHI', 'black_pct', 'hispanic_pct']
 TARGET = 'diabetes_pct'
 
 REGION_MAP = {
@@ -185,14 +185,32 @@ with tab2:
             float(df['no_vehicle_ratio'].median()), 0.01
         )
         food_access = st.slider(
-            "Low food access share (lapop1share)", 0.0, 1.0,
+            "Low food access share", 0.0, 1.0,
             float(df['lapop1share'].median()), 0.01,
             help="Share of tract population with low grocery access within 1 mile"
         )
+
+        st.markdown("**Controls**")
+        mhi = st.slider(
+            "Median household income ($)", 20000, 200000,
+            int(df['MHI'].median()), 2500, format="$%d"
+        )
+        b_pct = st.slider(
+            "Black population share", 0.0, 1.0,
+            float(df['black_pct'].median()), 0.01
+        )
+        h_pct = st.slider(
+            "Hispanic population share", 0.0, 1.0,
+            float(df['hispanic_pct'].median()), 0.01
+        )
+
     pred = model.predict(pd.DataFrame([{
         'walkability_mean': walkability,
         'lapop1share':      food_access,
         'no_vehicle_ratio': no_vehicle,
+        'MHI':              mhi,
+        'black_pct':        b_pct,
+        'hispanic_pct':     h_pct,
     }]))[0]
 
     pct_rank = float((df[TARGET].dropna() < pred).mean() * 100)
