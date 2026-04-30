@@ -12,7 +12,7 @@ from sklearn.pipeline import Pipeline
 st.set_page_config(page_title="Walkability & Health", layout="wide")
 
 DATA_PATH = '~/Desktop/projects/saas_df/data/merged_data.csv'
-FEATURES = ['walkability_mean', 'lapop1share', 'no_vehicle_ratio', 'MHI']
+FEATURES = ['walkability_mean', 'lapop1share', 'no_vehicle_ratio']
 TARGET = 'diabetes_pct'
 
 REGION_MAP = {
@@ -180,10 +180,6 @@ with tab2:
             "Walkability score", 1.0, 20.0,
             float(df['walkability_mean'].median()), 0.5
         )
-        mhi = st.slider(
-            "Median household income ($)", 20000, 200000,
-            int(df['MHI'].median()), 2500, format="$%d"
-        )
         no_vehicle = st.slider(
             "No-vehicle household ratio", 0.0, 0.80,
             float(df['no_vehicle_ratio'].median()), 0.01
@@ -197,7 +193,6 @@ with tab2:
         'walkability_mean': walkability,
         'lapop1share':      food_access,
         'no_vehicle_ratio': no_vehicle,
-        'MHI':              mhi,
     }]))[0]
 
     pct_rank = float((df[TARGET].dropna() < pred).mean() * 100)
