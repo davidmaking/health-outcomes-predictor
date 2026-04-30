@@ -7,9 +7,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 
-# Run from project root: streamlit run app.py
-# Requires data/merged_data.csv — generate it by running the notebook through
-# the "save CSV" cell (after the VIF cell in section 9).
+#streamlit run app.py
 
 st.set_page_config(page_title="Walkability & Health", layout="wide")
 
@@ -99,7 +97,6 @@ df = load_data()
 model = train_model()
 
 st.title("Walkability, Food Access & Health Outcomes")
-st.caption("~36K US census tracts · EPA National Walkability Index · CDC PLACES 2025 · USDA Food Atlas · Census ACS")
 st.divider()
 
 tab1, tab2 = st.tabs(["Neighborhood Lookup", "What-If Explorer"])
@@ -109,7 +106,7 @@ with tab1:
     st.markdown("Enter any US address to pull up that census tract's walkability, food access, and health stats.")
     address = st.text_input(
         "Address",
-        placeholder="e.g.  350 5th Ave, New York NY   ·   1 Infinite Loop, Cupertino CA"
+        placeholder="e.g. 2400 Durant Avenue, Berkeley, CA 94720"
     )
 
     if address:
@@ -172,8 +169,6 @@ with tab1:
         else:
             st.error("Address not recognized. Try including city and state — e.g. `123 Main St, Chicago IL`.")
 
-
-# ── Tab 2: What-If Explorer ───────────────────────────────────────────────────
 with tab2:
     st.markdown("Adjust tract characteristics below to see the model's predicted diabetes rate update in real time.")
 
