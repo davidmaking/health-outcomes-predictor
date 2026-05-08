@@ -62,8 +62,6 @@ model = train_model()
 st.title("Walkability, Food Access & Health Outcomes")
 st.divider()
 
-st.markdown("Adjust tract characteristics below to see the model's predicted diabetes rate update in real time.")
-
 nat_median = df[TARGET].median()
 col_left, col_right = st.columns([1, 1])
 
@@ -79,7 +77,6 @@ with col_left:
     food_access = st.slider(
         "Low food access share", 0.0, 1.0,
         float(df['lapop1share'].median()), 0.01,
-        help="Share of tract population with low grocery access within 1 mile"
     )
 
     st.markdown("**Controls**")
