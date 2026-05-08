@@ -129,5 +129,3 @@ with col_right:
     plt.tight_layout()
     st.pyplot(fig)
     plt.close()
-
-    st.caption("Gradient Boosting · Test R² = 0.70 · MAE = 1.51 pp")
