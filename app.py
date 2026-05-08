@@ -60,7 +60,6 @@ df = load_data()
 model = train_model()
 
 st.title("Walkability, Food Access & Health Outcomes")
-st.divider()
 
 nat_median = df[TARGET].median()
 col_left, col_right = st.columns([1, 1])
