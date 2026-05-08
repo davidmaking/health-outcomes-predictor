@@ -75,7 +75,7 @@ with col_left:
         float(df['no_vehicle_ratio'].median()), 0.01
     )
     food_access = st.slider(
-        "Low food access share", 0.0, 1.0,
+        "Low food access share", 0.0, 0.80,
         float(df['lapop1share'].median()), 0.01,
     )
 
