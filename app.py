@@ -12,7 +12,7 @@ st.set_page_config(page_title="Walkability & Health", layout="wide")
 
 from pathlib import Path
 
-DATA_PATH = Path(__file__).parent.parent / 'data' / 'merged_data.csv'
+DATA_PATH = Path(__file__).parent / 'data' / 'merged_data.csv'
 FEATURES = ['walkability_mean', 'lapop1share', 'no_vehicle_ratio', 'MHI', 'black_pct', 'hispanic_pct']
 TARGET = 'diabetes_pct'
 
