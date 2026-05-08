@@ -115,7 +115,7 @@ with col_right:
 
     fig, ax = plt.subplots(figsize=(6, 3))
     ax.hist(df[TARGET].dropna(), bins=80, color='#d8d8d8', density=True, label='All US tracts')
-    ax.axvline(pred, color='crimson', linewidth=2.5, label=f'Prediction: {pred:.1f}%')
+    ax.axvline(pred, color='black', linewidth=2.5, label=f'Prediction: {pred:.1f}%')
     ax.axvline(
         nat_median, color='steelblue', linewidth=1.5, linestyle='--',
         label=f'National median: {nat_median:.1f}%'
