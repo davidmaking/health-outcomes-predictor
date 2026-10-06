@@ -24,11 +24,11 @@ Four public datasets joined on census tract GEOID:
 
 `app.py` is an interactive Streamlit app with two tabs:
 
-- **Neighborhood Lookup** — enter any US address to pull up that census tract's walkability score, obesity rate, diabetes rate, and median income, each shown as a national percentile
-- **What-If Explorer** — adjust walkability, food access share, and no-vehicle ratio (with income and race as controls) to see a live Gradient Boosting prediction of the diabetes rate
+- **Neighborhood Lookup:** enter any US address to pull up that census tract's walkability score, obesity rate, diabetes rate, and median income, each shown as a national percentile
+- **What-If Explorer:** adjust walkability, food access share, and no-vehicle ratio (with income and race as controls) to see a live Gradient Boosting prediction of the diabetes rate
 
 To run: `streamlit run app.py`
 
 ## Stack
 
-Python — pandas, scikit-learn, statsmodels, matplotlib, seaborn, streamlit
+Python: pandas, scikit-learn, statsmodels, matplotlib, seaborn, streamlit
